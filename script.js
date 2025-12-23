@@ -9,9 +9,9 @@ let products = [];
 
 /* ===== المنتجات ===== */
 products.push(
-  { id: 1, name: "كريم شعر", price: 10, img: "image (1).jpeg" },
-  { id: 2, name: "مشط حلاقة", price: 15, img: "image (2).jpeg" },
-  { id: 3, name: "جل تصفيف", price: 20, img: "image (3).jpeg" }
+  { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
+  { id: 2, name: "واكس", price: 15, img: "image (2).jpeg" },
+  { id: 3, name: "", price: 20, img: "image (3).jpeg" }
 );
 
 /* باقي الصور */
@@ -136,4 +136,5 @@ function openImage(src) {
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 
