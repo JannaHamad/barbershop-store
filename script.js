@@ -9,9 +9,9 @@ let products = [];
 
 /* أول 3 منتجات */
 products.push(
-  { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
-  { id: 2, name: "باودر واكس", price: 15, img: "image (2).jpeg" },
-  { id: 3, name: "", price: 20, img: "image (3).jpeg" }
+  { id: 1, name: "كريم شعر", price: 10, img: "images/image (1).jpeg" },
+  { id: 2, name: "مشط حلاقة", price: 15, img: "images/image (2).jpeg" },
+  { id: 3, name: "جل تصفيف", price: 20, img: "images/image (3).jpeg" }
 );
 
 /* باقي المنتجات */
@@ -20,28 +20,31 @@ for (let i = 4; i <= 41; i++) {
     id: i,
     name: "❓",
     price: null,
-    img: `image (${i}).jpeg`
+    img: `images/image (${i}).jpeg`
   });
 }
 
 /* عرض المنتجات */
-products.forEach(p => {
-  const div = document.createElement("div");
-  div.className = "product";
-  div.innerHTML = `
-    <img src="${p.img}">
-    <div class="product-info">
-      <h4>${p.name}</h4>
-      <p>${p.price ? p.price + " ₪" : "❓"}</p>
-    </div>
-    <div class="controls">
-      <button onclick="decrease(${p.id})">−</button>
-      <span id="qty-${p.id}">0</span>
-      <button onclick="increase(${p.id})">+</button>
-    </div>
-  `;
-  productsDiv.appendChild(div);
-});
+function displayProducts() {
+  productsDiv.innerHTML = ""; // تنظيف المنتجات قبل العرض
+  products.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <img src="${p.img}">
+      <div class="product-info">
+        <h4>${p.name}</h4>
+        <p>${p.price ? p.price + " ₪" : "❓"}</p>
+      </div>
+      <div class="controls">
+        <button onclick="decrease(${p.id})">−</button>
+        <span id="qty-${p.id}">0</span>
+        <button onclick="increase(${p.id})">+</button>
+      </div>
+    `;
+    productsDiv.appendChild(div);
+  });
+}
 
 /* زيادة */
 function increase(id) {
@@ -67,7 +70,7 @@ function decrease(id) {
   updateUI();
 }
 
-/* تحديث */
+/* تحديث واجهة المستخدم */
 function updateUI() {
   let totalQty = 0;
   let total = 0;
@@ -99,7 +102,7 @@ function toggleCart() {
     cartModal.style.display === "block" ? "none" : "block";
 }
 
-/* واتساب */
+/* إرسال واتساب */
 function sendWhatsApp() {
   if (!cart.length) return alert("السلة فارغة");
 
@@ -115,7 +118,5 @@ function sendWhatsApp() {
   );
 }
 
-
-
-
-
+/* أول عرض للمنتجات */
+displayProducts();
