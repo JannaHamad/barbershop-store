@@ -110,22 +110,23 @@ function toggleCart() {
 
 /* ===== إرسال واتساب ===== */
 function sendWhatsApp() {
-  if (!cart.length) {
-    alert("السلة فارغة");
-    return;
-  }
+  if (!cart.length) return alert("السلة فارغة");
 
-  let msg = "سلة الطلبات:\n\n";
+  let msg = "طلب جديد:\n\n";
+
   cart.forEach(i => {
     msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`;
+    msg += `صورة المنتج: ${location.origin}/${i.img}\n\n`;
   });
-  msg += `\nالإجمالي: ${totalPriceEl.innerText} ₪`;
+
+  msg += `الإجمالي: ${totalPriceEl.innerText} ₪`;
 
   window.open(
     `https://wa.me/972568681451?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
 }
+
 
 /* ===== تكبير الصورة ===== */
 function openImage(src) {
@@ -136,6 +137,7 @@ function openImage(src) {
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 
 
 
