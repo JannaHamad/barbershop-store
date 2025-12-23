@@ -10,7 +10,7 @@ let products = [];
 /* أول 3 منتجات */
 products.push(
   { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
-  { id: 2, name: "باودر واكس", price: 15, img: "image (2).jpeg" },
+  { id: 2, name: "واكس", price: 15, img: "image (2).jpeg" },
   { id: 3, name: "", price: 20, img: "image (3).jpeg" }
 );
 
@@ -26,12 +26,12 @@ for (let i = 4; i <= 41; i++) {
 
 /* عرض المنتجات */
 function displayProducts() {
-  productsDiv.innerHTML = ""; // تنظيف المنتجات قبل العرض
+  productsDiv.innerHTML = "";
   products.forEach(p => {
     const div = document.createElement("div");
     div.className = "product";
     div.innerHTML = `
-      <img src="${p.img}">
+      <img src="${p.img}" onclick="openLightbox('${p.img}')">
       <div class="product-info">
         <h4>${p.name}</h4>
         <p>${p.price ? p.price + " ₪" : "❓"}</p>
@@ -113,11 +113,21 @@ function sendWhatsApp() {
   msg += `\nالإجمالي: ${totalPriceEl.innerText} ₪`;
 
   window.open(
-    `https://wa.me/9725686815451?text=${encodeURIComponent(msg)}`,
+    `https://wa.me/972XXXXXXXX?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
 }
 
-/* أول عرض للمنتجات */
-displayProducts();
+/* Lightbox */
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightboxImg.src = src;
+  lightbox.style.display = "flex";
+}
 
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+displayProducts();
