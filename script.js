@@ -1,79 +1,67 @@
 const productsDiv = document.getElementById("products");
-const cartItemsDiv = document.getElementById("cartItems");
-const cartCount = document.getElementById("cartCount");
-const totalPriceEl = document.getElementById("totalPrice");
-const cartModal = document.getElementById("cartModal");
-
 let cart = [];
 let products = [];
 
-/* أول 3 منتجات */
+/* مثال على بعض المنتجات */
 products.push(
-  { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
-  { id: 2, name: "واكس", price: 15, img: "image (2).jpeg" },
-  { id: 3, name: "", price: 20, img: "image (3).jpeg" }
+  { id: 1, name: "كريم شعر", price: 10, img: "image (1).jpeg" },
+  { id: 2, name: "مشط حلاقة", price: 15, img: "image (2).jpeg" },
+  { id: 3, name: "جل تصفيف", price: 20, img: "image (3).jpeg" }
 );
 
-/* باقي المنتجات */
 for (let i = 4; i <= 41; i++) {
-  products.push({
-    id: i,
-    name: "❓",
-    price: null,
-    img: `image (${i}).jpeg`
-  });
+  products.push({ id: i, name: "❓", price: null, img: `image (${i}).jpeg` });
 }
 
 /* عرض المنتجات */
-function displayProducts() {
-  productsDiv.innerHTML = "";
-  products.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "product";
-    div.innerHTML = `
-      <img src="${p.img}" onclick="openLightbox('${p.img}')">
-      <div class="product-info">
-        <h4>${p.name}</h4>
-        <p>${p.price ? p.price + " ₪" : "❓"}</p>
-      </div>
-      <div class="controls">
-        <button onclick="decrease(${p.id})">−</button>
-        <span id="qty-${p.id}">0</span>
-        <button onclick="increase(${p.id})">+</button>
-      </div>
-    `;
-    productsDiv.appendChild(div);
-  });
+products.forEach(p => {
+  const div = document.createElement("div");
+  div.className = "product";
+  div.innerHTML = `
+    <img src="${p.img}" onclick="openImage('${p.img}')">
+    <div class="product-info">
+      <h4>${p.name}</h4>
+      <p>${p.price ? p.price + " ₪" : "❓"}</p>
+    </div>
+    <div class="controls">
+      <button onclick="decrease(${p.id})">−</button>
+      <span id="qty-${p.id}">0</span>
+      <button onclick="increase(${p.id})">+</button>
+    </div>
+  `;
+  productsDiv.appendChild(div);
+});
+
+/* فتح الصورة */
+function openImage(src) {
+  const imgWindow = window.open("", "_blank");
+  imgWindow.document.write(`<img src="${src}" style="width:100%">`);
 }
 
-/* زيادة */
+/* الكمية */
 function increase(id) {
   const product = products.find(p => p.id === id);
   if (!product.price) return alert("غير متوفر");
-
   const item = cart.find(i => i.id === id);
   if (item) item.qty++;
   else cart.push({ ...product, qty: 1 });
-
   updateUI();
 }
 
-/* نقصان */
 function decrease(id) {
   const item = cart.find(i => i.id === id);
   if (!item) return;
-
   item.qty--;
-  if (item.qty === 0)
-    cart = cart.filter(i => i.id !== id);
-
+  if (item.qty === 0) cart = cart.filter(i => i.id !== id);
   updateUI();
 }
 
-/* تحديث واجهة المستخدم */
 function updateUI() {
   let totalQty = 0;
   let total = 0;
+  const cartItemsDiv = document.getElementById("cartItems");
+  const cartCount = document.getElementById("cartCount");
+  const totalPriceEl = document.getElementById("totalPrice");
   cartItemsDiv.innerHTML = "";
 
   products.forEach(p => {
@@ -97,40 +85,16 @@ function updateUI() {
 }
 
 /* السلة */
+const cartModal = document.getElementById("cartModal");
 function toggleCart() {
-  cartModal.style.display =
-    cartModal.style.display === "block" ? "none" : "block";
+  cartModal.style.display = cartModal.style.display === "block" ? "none" : "block";
 }
 
-/* إرسال واتساب */
+/* واتساب */
 function sendWhatsApp() {
   if (!cart.length) return alert("السلة فارغة");
-
   let msg = "أريد أن أطلب:\n\n";
-  cart.forEach(i => {
-    msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`;
-  });
-  msg += `\nالإجمالي: ${totalPriceEl.innerText} ₪`;
-
-  window.open(
-    `https://wa.me/972568681451?text=${encodeURIComponent(msg)}`,
-    "_blank"
-  );
+  cart.forEach(i => msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`);
+  msg += `\nالإجمالي: ${document.getElementById("totalPrice").innerText} ₪`;
+  window.open(`https://wa.me/972568681451?text=${encodeURIComponent(msg)}`, "_blank");
 }
-
-/* Lightbox */
-function openLightbox(src) {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  lightboxImg.src = src;
-  lightbox.style.display = "flex";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-
-displayProducts();
-
-
-
