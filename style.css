@@ -18,15 +18,18 @@ header {
 /* حاوية اللوجو */
 .logo-container {
   position: relative;
-  width: 100%;
+  width: 80%;        /* عرض أقل من الشاشة */
+  max-width: 600px;  /* أقصى عرض */
+  margin: 0 auto;    /* يتركز في منتصف الشاشة */
   height: auto;
 }
 
-/* صورة اللوجو بعرض الشاشة */
+/* صورة اللوجو */
 .logo-img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px; /* اختيارية للشكل */
 }
 
 /* نص وسط اللوجو */
@@ -36,7 +39,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   text-align: center;
@@ -54,7 +57,7 @@ header {
 
 /* مسافة تحت اللوجو للمنتجات */
 .top-space {
-  height: 300px; /* عدلي حسب ارتفاع اللوجو */
+  height: 200px; /* مناسب ليظهر المنتج الأول مباشرة تحت اللوجو */
 }
 
 /* قائمة المنتجات */
