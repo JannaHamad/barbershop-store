@@ -8,19 +8,22 @@
 </head>
 <body>
 
+<!-- شريط أعلى الصفحة للسلة -->
+<div class="top-bar">
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cartCount">0</span>
+  </div>
+</div>
+
 <header>
   <div class="logo-container">
     <img src="Barbershop-Store.jpeg" alt="Barbershop Store Logo" class="logo-img">
     <div class="logo-text">Barbershop Store</div>
   </div>
-  <div class="cart-icon" onclick="toggleCart()">
-    🛒 <span id="cartCount">0</span>
-  </div>
 </header>
 
 <div class="top-space"></div>
 <main id="products"></main>
-
 
 <!-- السلة -->
 <div id="cartModal" class="modal">
@@ -37,6 +40,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
