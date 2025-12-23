@@ -20,7 +20,7 @@ for (let i = 4; i <= 41; i++) {
     id: i,
     name: "❓",
     price: null,
-    img: `images/image (${i}).jpeg`
+    img: `image (${i}).jpeg`
   });
 }
 
@@ -120,4 +120,5 @@ function sendWhatsApp() {
 
 /* أول عرض للمنتجات */
 displayProducts();
+
 
