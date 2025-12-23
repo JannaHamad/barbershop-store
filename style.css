@@ -2,183 +2,191 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Tahoma, Arial;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 body {
-  background: #f6f6f6;
+  background: #f4f4f4;
 }
 
-/* شريط السلة كامل العرض */
-.cart-icon {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* ===== شريط علوي للسلة ===== */
+.top-bar {
   width: 100%;
-  background: #f5e0c3; /* سكري */
-  padding: 10px 20px;
-  font-size: 24px;
-  z-index: 200;
+  height: 50px;
+  background: #f3efe8; /* سكري */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+}
+
+.cart-icon {
+  font-size: 22px;
   cursor: pointer;
-  text-align: right; /* السلة على اليمين */
 }
 
-/* حاوية اللوجو */
+/* ===== اللوجو ===== */
 .logo-container {
-  position: relative;
-  width: 70%;        
+  width: 90%;
   max-width: 500px;
-  margin: 60px auto 0 auto; /* مسافة أعلى لتجنب الشريط */
-  height: auto;
+  margin: 15px auto 10px;
+  position: relative;
 }
 
-/* صورة اللوجو */
 .logo-img {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
+  height: 180px;
+  object-fit: contain; /* يظهر الصورة كاملة */
+  border-radius: 14px;
 }
 
-/* نص وسط اللوجو */
 .logo-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: white;
   font-size: 28px;
   font-weight: bold;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
-/* مسافة تحت اللوجو للمنتجات */
-.top-space {
-  height: 20px;
-}
-
-/* قائمة المنتجات */
+/* ===== المنتجات ===== */
 #products {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* فرق بين المنتجات */
+  gap: 10px;
   padding: 10px;
 }
 
-/* مربع المنتج */
+/* كرت المنتج */
 .product {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-  width: calc(50% - 5px);  /* منتجين في الصف */
+  width: calc(50% - 5px); /* منتجين جنب بعض */
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 10px;
 }
 
 /* صورة المنتج */
 .product img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 160px;          /* أكبر */
+  object-fit: contain;   /* بدون قص */
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
-/* معلومات المنتج */
+/* اسم وسعر */
+.product-info {
+  text-align: center;
+  margin-top: 8px;
+}
+
 .product-info h4 {
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .product-info p {
-  color: #555;
   font-size: 13px;
+  color: #333;
 }
 
-/* التحكم بالكمية أسفل الصورة */
+/* التحكم */
 .controls {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .controls button {
-  background: #000;
-  color: #fff;
+  width: 24px;
+  height: 24px;
+  background: black;
+  color: white;
   border: none;
-  width: 26px;
-  height: 26px;
   border-radius: 50%;
+  font-size: 14px;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .controls span {
   margin: 0 8px;
-  min-width: 20px;
-  text-align: center;
+  font-size: 14px;
 }
 
-/* السلة */
+/* ===== نافذة الصورة المكبرة ===== */
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* ===== السلة ===== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
-  z-index: 300;
+  z-index: 400;
 }
 
 .modal-content {
-  background: #fff;
+  background: white;
   width: 90%;
   max-width: 400px;
-  margin: 90px auto;
+  margin: 80px auto;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .close {
   float: left;
-  cursor: pointer;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .cart-item {
   display: flex;
   justify-content: space-between;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
-/* واتساب */
 .whatsapp {
   width: 100%;
   padding: 10px;
   background: #25D366;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
 }
 
-/* متجاوب */
-@media (max-width: 768px) {
-  .product { 
-    width: 100%; /* شاشة أصغر → منتج واحد لكل صف */
+/* ===== تحسين للابتوب ===== */
+@media (min-width: 900px) {
+  .product {
+    width: calc(25% - 10px); /* 4 منتجات بالصف */
   }
 
-  .logo-container {
-    width: 90%;
-    margin-top: 20px;
-  }
-
-  .logo-text {
-    font-size: 24px;
+  .logo-img {
+    height: 220px;
   }
 }
