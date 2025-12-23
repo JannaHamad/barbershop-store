@@ -85,6 +85,7 @@ header .cart-bar {
   border-radius: 12px;
   margin-bottom: 8px;
   background: #f6f6f6;
+  cursor: pointer;
 }
 
 /* معلومات المنتج */
@@ -163,6 +164,24 @@ header .cart-bar {
   border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 400;
+  cursor: pointer;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
 }
 
 /* متجاوب */
