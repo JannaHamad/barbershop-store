@@ -106,7 +106,7 @@ function toggleCart() {
 function sendWhatsApp() {
   if (!cart.length) return alert("السلة فارغة");
 
-  let msg = "طلب جديد:\n\n";
+  let msg = "أريد أن أطلب:\n\n";
   cart.forEach(i => {
     msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`;
   });
@@ -131,5 +131,6 @@ function closeLightbox() {
 }
 
 displayProducts();
+
 
 
