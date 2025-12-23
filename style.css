@@ -87,10 +87,12 @@ header {
 .product img {
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  object-fit: contain;  /* بدل cover لنرى الصورة كاملة */
   border-radius: 12px;
   margin-bottom: 8px;
+  background: #f6f6f6; /* لون خلفية إذا كانت الصورة أصغر */
 }
+
 
 /* معلومات المنتج */
 .product-info h4 {
@@ -182,3 +184,4 @@ header {
   #products { grid-template-columns: 1fr; }
   .logo-container { width: 70%; max-width: 250px; }
 }
+
