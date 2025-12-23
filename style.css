@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, Arial;
+}
+
+body {
+  background: #f6f6f6;
+}
+
+/* الهيدر */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.cart-icon {
+  cursor: pointer;
+}
+
+/* مسافة من فوق */
+.top-space {
+  height: 70px;
+}
+
+/* قائمة المنتجات */
+#products {
+  padding: 10px;
+}
+
+/* المنتج */
+.product {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+}
+
+/* الصورة */
+.product img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* معلومات المنتج */
+.product-info {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.product-info h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.product-info p {
+  color: #555;
+  font-size: 13px;
+}
+
+/* التحكم بالكمية */
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.controls button {
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.controls span {
+  margin: 0 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* السلة */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 400px;
+  margin: 90px auto;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.close {
+  float: left;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+/* واتساب */
+.whatsapp {
+  width: 100%;
+  padding: 10px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
