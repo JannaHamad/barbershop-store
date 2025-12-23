@@ -115,7 +115,7 @@ function sendWhatsApp() {
     return;
   }
 
-  let msg = "طلب جديد:\n\n";
+  let msg = "سلة الطلبات:\n\n";
   cart.forEach(i => {
     msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`;
   });
@@ -136,5 +136,6 @@ function openImage(src) {
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 
 
