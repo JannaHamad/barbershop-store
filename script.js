@@ -1,4 +1,4 @@
-const productsDiv = document.getElementById("products");
+const productsDiv = document.getElementById("products")
 const cartItemsDiv = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
 const totalPriceEl = document.getElementById("totalPrice");
@@ -9,7 +9,7 @@ let products = [];
 
 /* ===== المنتجات ===== */
 products.push(
-  { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
+  { id: 1, name: "مقص شعر", price: 10, img: "image-1.jpeg" },
   { id: 2, name: "واكس", price: 15, img: "image (2).jpeg" },
   { id: 3, name: "", price: 20, img: "image (3).jpeg" }
 );
@@ -137,6 +137,7 @@ function openImage(src) {
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 
 
 
