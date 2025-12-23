@@ -113,7 +113,7 @@ function sendWhatsApp() {
   msg += `\nالإجمالي: ${totalPriceEl.innerText} ₪`;
 
   window.open(
-    `https://wa.me/972XXXXXXXX?text=${encodeURIComponent(msg)}`,
+    `https://wa.me/972X568681451?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
 }
@@ -131,3 +131,4 @@ function closeLightbox() {
 }
 
 displayProducts();
+
