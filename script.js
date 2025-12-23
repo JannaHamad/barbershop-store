@@ -9,9 +9,9 @@ let products = [];
 
 /* أول 3 منتجات */
 products.push(
-  { id: 1, name: "كريم شعر", price: 10, img: "images/image (1).jpeg" },
-  { id: 2, name: "مشط حلاقة", price: 15, img: "images/image (2).jpeg" },
-  { id: 3, name: "جل تصفيف", price: 20, img: "images/image (3).jpeg" }
+  { id: 1, name: "مقص شعر", price: 10, img: "image (1).jpeg" },
+  { id: 2, name: "باودر واكس", price: 15, img: "image (2).jpeg" },
+  { id: 3, name: "", price: 20, img: "image (3).jpeg" }
 );
 
 /* باقي المنتجات */
@@ -120,3 +120,4 @@ function sendWhatsApp() {
 
 /* أول عرض للمنتجات */
 displayProducts();
+
