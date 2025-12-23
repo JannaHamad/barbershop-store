@@ -10,8 +10,8 @@ let products = [];
 /* ===== المنتجات ===== */
 products.push(
   { id: 1, name: "مقص شعر", price: 10, img: "image-1.jpeg" },
-  { id: 2, name: "واكس", price: 15, img: "image (2).jpeg" },
-  { id: 3, name: "", price: 20, img: "image (3).jpeg" }
+  { id: 2, name: "واكس", price: 15, img: "image-2.jpeg" },
+  { id: 3, name: "", price: 20, img: "image-3.jpeg" }
 );
 
 /* باقي الصور */
@@ -20,7 +20,7 @@ for (let i = 4; i <= 41; i++) {
     id: i,
     name: "❓",
     price: null,
-    img: `image (${i}).jpeg`
+    img: `image-(${i}).jpeg`
   });
 }
 
@@ -112,7 +112,7 @@ function toggleCart() {
 function sendWhatsApp() {
   if (!cart.length) return alert("السلة فارغة");
 
-  let msg = "طلب جديد:\n\n";
+  let msg = "سلة الطلبات:\n\n";
 
   cart.forEach(i => {
     msg += `${i.name} × ${i.qty} = ${i.qty * i.price} ₪\n`;
@@ -122,7 +122,7 @@ function sendWhatsApp() {
   msg += `الإجمالي: ${totalPriceEl.innerText} ₪`;
 
   window.open(
-    `https://wa.me/972568681451?text=${encodeURIComponent(msg)}`,
+    `https://wa.me/972568112306?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
 }
@@ -137,6 +137,7 @@ function openImage(src) {
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 
 
 
