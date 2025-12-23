@@ -8,21 +8,20 @@
 </head>
 <body>
 
-<!-- شريط أعلى الصفحة للسلة -->
-<div class="top-bar">
-  <div class="cart-icon" onclick="toggleCart()">
-    🛒 <span id="cartCount">0</span>
-  </div>
-</div>
-
+<!-- شريط السلة -->
 <header>
-  <div class="logo-container">
-    <img src="Barbershop-Store.jpeg" alt="Barbershop Store Logo" class="logo-img">
-    <div class="logo-text"> الحلاقة</div>
+  <div class="cart-bar">
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cartCount">0</span></div>
   </div>
 </header>
 
-<div class="top-space"></div>
+<!-- اللوجو -->
+<div class="logo-container">
+  <img src="Barbershop-Store.jpeg" alt="Barbershop Store Logo" class="logo-img">
+  <div class="logo-text">مستلزمات حلاقة</div>
+</div>
+
+<!-- المنتجات -->
 <main id="products"></main>
 
 <!-- السلة -->
@@ -37,8 +36,11 @@
   </div>
 </div>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
-
-
