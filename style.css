@@ -9,13 +9,7 @@ body {
   background: #f6f6f6;
 }
 
-/* الهيدر */
-header {
-  position: relative;
-  width: 100%;
-}
-
-/* شريط السلة أعلى الصفحة */
+/* شريط السلة */
 .cart-icon {
   position: fixed;
   top: 0;
@@ -30,7 +24,7 @@ header {
 /* حاوية اللوجو */
 .logo-container {
   position: relative;
-  width: 70%;        /* أقل عرض */
+  width: 70%;        
   max-width: 500px;
   margin: 50px auto 0 auto; /* مسافة من الأعلى */
   height: auto;
@@ -66,7 +60,7 @@ header {
 #products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 10px; /* فرق بين المنتجات */
   padding: 10px;
 }
 
@@ -75,8 +69,7 @@ header {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-  width: calc(50% - 10px);  /* 2 منتجات في الصف */
-  margin-bottom: 20px;
+  width: calc(50% - 5px);  /* منتجين في الصف */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,8 +166,18 @@ header {
 }
 
 /* متجاوب */
-@media (max-width: 600px) {
-  .product { width: 100%; margin-bottom: 15px; }
-  .logo-container { width: 90%; margin-top: 20px; }
-  .logo-text { font-size: 24px; }
+@media (max-width: 768px) {
+  .product { 
+    width: 100%; /* شاشة أصغر → منتج واحد لكل صف */
+    margin-bottom: 15px;
+  }
+
+  .logo-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
 }
