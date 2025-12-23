@@ -68,7 +68,7 @@ header .cart-bar {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-  width: 23%;             /* 4 منتجات في الصف */
+  width: 48%;             /* بدل 23% → لعرض منتجين في الصف */
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,7 @@ header .cart-bar {
   text-align: center;
   padding: 10px;
 }
+
 
 /* صورة المنتج */
 .product img {
@@ -186,8 +187,10 @@ header .cart-bar {
 
 /* متجاوب */
 @media (max-width: 900px) {
-  .product { width: 48%; margin-bottom: 15px; }
+  .product { width: 100%; margin-bottom: 15px; } /* شاشة أصغر: منتج واحد في الصف */
 }
+
 @media (max-width: 600px) {
   .product { width: 100%; margin-bottom: 15px; }
 }
+
