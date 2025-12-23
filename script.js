@@ -10,8 +10,8 @@ let products = [];
 /* أول 3 منتجات */
 products.push(
   { id: 1, name: "كريم شعر", price: 10, img: "image (1).jpeg" },
-  { id: 2, name: "مشط حلاقة", price: 15, img: "images/image (2).jpeg" },
-  { id: 3, name: "جل تصفيف", price: 20, img: "images/image (3).jpeg" }
+  { id: 2, name: "مشط حلاقة", price: 15, img: "image (2).jpeg" },
+  { id: 3, name: "جل تصفيف", price: 20, img: "image (3).jpeg" }
 );
 
 /* باقي المنتجات */
@@ -20,7 +20,7 @@ for (let i = 4; i <= 41; i++) {
     id: i,
     name: "❓",
     price: null,
-    img: `images/image (${i}).jpeg`
+    img: `image (${i}).jpeg`
   });
 }
 
@@ -114,6 +114,7 @@ function sendWhatsApp() {
     "_blank"
   );
 }
+
 
 
 
