@@ -185,12 +185,8 @@ header .cart-bar {
   border-radius: 12px;
 }
 
-/* متجاوب */
 @media (max-width: 900px) {
   .product { width: 100%; margin-bottom: 15px; } /* شاشة أصغر: منتج واحد في الصف */
 }
 
-@media (max-width: 600px) {
-  .product { width: 100%; margin-bottom: 15px; }
-}
 
