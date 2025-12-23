@@ -9,16 +9,18 @@ body {
   background: #f6f6f6;
 }
 
-/* شريط السلة */
+/* شريط السلة كامل العرض */
 .cart-icon {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
   background: #f5e0c3; /* سكري */
   padding: 10px 20px;
   font-size: 24px;
   z-index: 200;
   cursor: pointer;
+  text-align: right; /* السلة على اليمين */
 }
 
 /* حاوية اللوجو */
@@ -26,7 +28,7 @@ body {
   position: relative;
   width: 70%;        
   max-width: 500px;
-  margin: 50px auto 0 auto; /* مسافة من الأعلى */
+  margin: 60px auto 0 auto; /* مسافة أعلى لتجنب الشريط */
   height: auto;
 }
 
@@ -53,7 +55,7 @@ body {
 
 /* مسافة تحت اللوجو للمنتجات */
 .top-space {
-  height: 20px; /* صغير حتى المنتجات تظهر مباشرة بعد اللوجو */
+  height: 20px;
 }
 
 /* قائمة المنتجات */
@@ -169,7 +171,6 @@ body {
 @media (max-width: 768px) {
   .product { 
     width: 100%; /* شاشة أصغر → منتج واحد لكل صف */
-    margin-bottom: 15px;
   }
 
   .logo-container {
